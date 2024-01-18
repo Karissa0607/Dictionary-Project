@@ -1,0 +1,39 @@
+BEGIN: test_dictNew
+Dict
+	numRows=10
+	DictRow[0]: numEntries=0 capacity=8 keys=[]
+	DictRow[1]: numEntries=0 capacity=8 keys=[]
+	DictRow[2]: numEntries=0 capacity=8 keys=[]
+	DictRow[3]: numEntries=0 capacity=8 keys=[]
+	DictRow[4]: numEntries=0 capacity=8 keys=[]
+	DictRow[5]: numEntries=0 capacity=8 keys=[]
+	DictRow[6]: numEntries=0 capacity=8 keys=[]
+	DictRow[7]: numEntries=0 capacity=8 keys=[]
+	DictRow[8]: numEntries=0 capacity=8 keys=[]
+	DictRow[9]: numEntries=0 capacity=8 keys=[]
+END  : test_dictNew
+BEGIN: test_hash
+HASH: numBadRows/numRows = 0/256
+HASH: numBadRows/numRows = 0/512
+HASH: numBadRows/numRows = 0/1024
+HASH: numBadRows/numRows = 0/2048
+HASH: numBadRows/numRows = 0/4096
+HASH: numBadRows/numRows = 0/8192
+HASH: numBadRows/numRows = 0/16384
+END  : test_hash
+BEGIN: test_dictGet_empty
+END  : test_dictGet_empty
+BEGIN: test_stressTest
+BEGIN: addWords
+END  : addWords
+BEGIN: checkWords
+END  : checkWords
+BEGIN: delWords
+END  : delWords
+BEGIN: checkWords
+END  : checkWords
+BEGIN: delWords
+END  : delWords
+BEGIN: checkWords
+END  : checkWords
+END  : test_stressTest

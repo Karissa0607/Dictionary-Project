@@ -1,0 +1,78 @@
++-----------------------------------------------------------------------------+
+|                  Growing and shrinking DictEntries                          |
++-----------------------------------------------------------------------------+
+a) The rule for growing the number of DictEntries is: 
+   You can modify this if you change the rule.
+
+   When to grow: What is the condition that triggers a grow?
+
+	I did not trigger any grows for DictEntries.
+
+   How to grow: Do you double the number of entries, add 10 more entries?
+
+	Keep the number of entries the same.
+	Add numRows += DICT_GROW_FACTOR instead (explained below).
+
+   Justification for above: Argue why this is the right thing to do.
+	Expanding in this way leads to having rows with a maximum
+	capacity of 8. This will help with the time complexity of 
+	searching for keys. This is because the numEntries can only be a 8
+	maximum of 8 so the time complexity of binary search for each row is logn (base 2)
+	which leads to a maximum of recursive calls as log8 (base2) = 3.
+
+b) The rule for shrinking the number of DictEntries is:
+
+   When to shrink: What is the condition that triggers a shrink?
+
+	Whenever a DictEntry is being deleted, the capacity decreases by 1 and so does numEntries.
+
+   How to shrink: Do you cut the number of entries in half, subtract 10?
+
+	numEntries -= 1.
+	capacity -= 1.
+
+   Justification for above: Argue why this is the right thing to do.
+
+	Each time a key is deleted the numEntries and capacity decreases by 1. When the capacity is 0,
+	no more DictEntry's can be inserted so there is no use for the row anymore. 
+	This will lead to the Dict eventually becoming empty to free space when the numEntries in the row
+	is 0. 
+	
+
++-----------------------------------------------------------------------------+
+|                  Growing and shrinking DictRows                             |
++-----------------------------------------------------------------------------+
+a) The rule for growing the number of DictRows is:
+
+   When to grow: What is the condition that triggers a grow?
+
+	capacity==numEntries
+
+   How to grow: Do you double the number of rows, add 10 more rows?
+
+	numRows += DICT_GROW_FACTOR
+
+   Justification for above: Argue why this is the right thing to do.
+
+	Expanding in this way leads to having rows with a maximum
+        capacity of 8. This will help with the time complexity of
+        searching for keys. This is because the numEntries can only be a 8
+        maximum of 8 so the time complexity of binary search for each row is logn (base 2)
+        which leads to a maximum of recursive calls as log8 (base2) = 3.
+
+b) The rule for shrinking the number of DictRows is:
+
+   When to shrink: What is the condition that triggers a shrink?
+
+	capacity == 0.
+
+   How to shrink: Do you cut the number of rows in half, subtract 10?
+
+	numRows -= 1.
+
+   Justification for above: Argue why this is the right thing to do.
+
+	Whenever the capacity is 0, no more DictEntry's can be added so the 
+	row should be deleted in order to free up space and shrink the Dict.
+
+

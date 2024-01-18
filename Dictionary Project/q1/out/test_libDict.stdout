@@ -1,0 +1,89 @@
+BEGIN: test_dictNew
+	Dict: numEntries=0 capacity=8 [((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+END  : test_dictNew
+BEGIN: test_dictGet_empty
+OK   : searched for  on empty Dict and result was NULL
+OK   : searched for a on empty Dict and result was NULL
+OK   : searched for aa on empty Dict and result was NULL
+OK   : searched for ab on empty Dict and result was NULL
+OK   : searched for this on empty Dict and result was NULL
+OK   : searched for that on empty Dict and result was NULL
+OK   : searched for this is a very long string with lots of characters on empty Dict and result was NULL
+END  : test_dictGet_empty
+BEGIN: test_stressTest
+BEGIN: addWords
+	Dict: numEntries=0 capacity=8 [((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+Buff word: A 
+Buff word: A 
+Dict word: (null) 
+0 
+	Dict: numEntries=1 capacity=8 [(A,0), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+	Dict: numEntries=1 capacity=8 [(A,0), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+Buff word: A's 
+Buff word: A's 
+Dict word: A 
+1 
+	Dict: numEntries=2 capacity=8 [(A,0), (A's,1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+	Dict: numEntries=2 capacity=8 [(A,0), (A's,1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+Buff word: AMD 
+Buff word: AMD 
+Dict word: A 
+2 
+	Dict: numEntries=3 capacity=8 [(A,0), (A's,1), (AMD,2), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+	Dict: numEntries=3 capacity=8 [(A,0), (A's,1), (AMD,2), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+Buff word: AMD's 
+Buff word: AMD's 
+Dict word: A 
+3 
+	Dict: numEntries=4 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+	Dict: numEntries=4 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+Buff word: AOL 
+Buff word: AOL 
+Dict word: A 
+4 
+	Dict: numEntries=5 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), ((null),-1), ((null),-1), ((null),-1), ]
+	Dict: numEntries=5 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), ((null),-1), ((null),-1), ((null),-1), ]
+Buff word: AOL's 
+Buff word: AOL's 
+Dict word: A 
+5 
+	Dict: numEntries=6 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), ((null),-1), ((null),-1), ]
+	Dict: numEntries=6 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), ((null),-1), ((null),-1), ]
+Buff word: AWS 
+Buff word: AWS 
+Dict word: A 
+6 
+	Dict: numEntries=7 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), (AWS,6), ((null),-1), ]
+	Dict: numEntries=7 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), (AWS,6), ((null),-1), ]
+Buff word: AWS's 
+Buff word: AWS's 
+Dict word: A 
+7 
+	Dict: numEntries=8 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), (AWS,6), (AWS's,7), ]
+	Dict: numEntries=8 capacity=8 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), (AWS,6), (AWS's,7), ]
+Buff word: Aachen 
+Buff word: Aachen 
+Dict word: A 
+8 
+	Dict: numEntries=9 capacity=10 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), (AWS,6), (AWS's,7), (Aachen,8), ((null),-1), ]
+	Dict: numEntries=9 capacity=10 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), (AWS,6), (AWS's,7), (Aachen,8), ((null),-1), ]
+Buff word: Aachen's 
+Buff word: Aachen's 
+Dict word: A 
+9 
+	Dict: numEntries=10 capacity=10 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), (AWS,6), (AWS's,7), (Aachen,8), (Aachen's,9), ]
+END  : addWords
+	Dict: numEntries=10 capacity=10 [(A,0), (A's,1), (AMD,2), (AMD's,3), (AOL,4), (AOL's,5), (AWS,6), (AWS's,7), (Aachen,8), (Aachen's,9), ]
+BEGIN: checkWords
+END  : checkWords
+BEGIN: delWords
+END  : delWords
+BEGIN: checkWords
+END  : checkWords
+	Dict: numEntries=5 capacity=10 [(A,0), (AMD,2), (AOL,4), (AWS,6), (Aachen,8), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+BEGIN: delWords
+END  : delWords
+BEGIN: checkWords
+END  : checkWords
+	Dict: numEntries=0 capacity=10 [((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ((null),-1), ]
+END  : test_stressTest
